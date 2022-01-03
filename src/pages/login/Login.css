@@ -1,0 +1,27 @@
+.google-btn{
+    border: 2px solid white;
+    background: none;
+    margin: 10px 0px;
+    padding: 10px;
+}
+.google-btn:hover{
+    border: 2px solid #3faef8;
+    border-radius: 5px;
+}
+.google-btn img{
+    width: 50px;
+}
+
+.gitHub-btn{
+    border: 2px solid white;
+    padding: 5px;
+    border: none;
+    background: none;
+}
+.gitHub-btn:hover{
+    border: 2px solid #3faef8;
+    border-radius: 5px;
+}
+.gitHub-btn img{
+    width: 65px;
+}
