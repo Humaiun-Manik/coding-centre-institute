@@ -1,0 +1,16 @@
+.contactUs{
+    background-image: url(../../assets/images/sectionBg.png);
+    color: white;
+    padding: 40px 0;
+}
+.contactUs p{
+    color: gray;
+}
+.inputBg{
+    background: none;
+}
+.submitBtn{
+    width: 100px;
+    margin-top: 20px;
+    margin-left: 12px;
+}

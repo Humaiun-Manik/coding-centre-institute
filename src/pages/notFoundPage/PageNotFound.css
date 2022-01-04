@@ -1,0 +1,14 @@
+.pageNotFound{
+    background-image: url(../../assets/images/sectionBg.png);
+    padding: 150px 0;
+}
+.pageNotFound h1{
+    font-size: 100px;
+    color: red;
+}
+.pageNotFound h4{
+    color: white;
+}
+.pageNotFound p{
+    color: gray;
+}
