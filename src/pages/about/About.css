@@ -1,0 +1,8 @@
+.about{
+    background-image: url(./../../assets/images/sectionBg.png);
+    padding: 40px 0;
+    color: white;
+}
+.about p{
+    color: gray;
+}

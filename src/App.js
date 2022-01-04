@@ -2,7 +2,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from "react-router-dom";
 import './App.css';
 import Home from './pages/Home';
-import About from './pages/About';
 import Contact from './pages/Contact';
 import AuthProvider from './contexts/AuthProvider';
 import Header from './components/header/Header';
@@ -10,6 +9,7 @@ import Footer from './components/footer/Footer';
 import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
 import ResetPassword from './pages/ResetPassword';
+import About from './pages/about/About';
 
 function App() {
   return (

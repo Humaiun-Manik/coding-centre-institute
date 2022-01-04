@@ -151,9 +151,9 @@ const useFirebase = () => {
     return {
         signInWithGoogle,
         signInWithGitHub,
+        signInWithEmail,
         user,
         error,
-        signInWithEmail,
         getName,
         getEmail,
         getPassword,
