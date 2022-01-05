@@ -5,8 +5,8 @@ import { Bounce, Zoom } from 'react-reveal';
 import useAuth from '../../hooks/useAuth';
 
 const About = () => {
-
-    const { getEmail, signUp } = useAuth();
+    const { AllContexts } = useAuth();
+    const { getEmail, signUp } = AllContexts;
 
     return (
         <div className='about'>
@@ -16,7 +16,7 @@ const About = () => {
                 </Zoom>
                 <Bounce bottom>
                     <Row>
-                        <Col md-5>
+                        <Col>
                             <h4>About Us</h4>
                             <p>There are countless online education marketplaces on the internet. And there’s us. We are not the biggest. We are not the cheapest. But we are the fastest growing. We have the highest course completion rate in the industry.</p>
                             <p>And the reason is, we don’t give up. When a student commits to a course, we commit to the student. We are not going to sugar coat it - we will make you complete, come what may. You may not have given much thought to what you are signing up for, but we believe you are signing up for knowledge that is useful and complete. We are ridiculously committed to our students. Be it constant reminders, relentless masters or 24 x 7 online support - we will absolutely make sure that you run out of excuses to not complete the course.</p>

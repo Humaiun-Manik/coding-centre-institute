@@ -32,6 +32,23 @@ const useFirebase = () => {
     const [password, setPassword] = useState('');
     const [photo, setPhoto] = useState('');
 
+    // clear error
+    useEffect(() => {
+        setTimeout(() => {
+            setError();
+        }, 5000);
+    }, [error]);
+
+    //Get the currently signed-in user
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser(user);
+            }
+        });
+        return () => unsubscribe;
+    }, [])
+
     // google sign in
     const signInWithGoogle = () => {
         const googleProvider = new GoogleAuthProvider();
@@ -65,16 +82,6 @@ const useFirebase = () => {
             setError(error.message);
         });
     };
-
-    //Get the currently signed-in user
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-            }
-        });
-        return () => unsubscribe;
-    }, [])
 
     // sign up with email and password
     const signUp = (e) => {

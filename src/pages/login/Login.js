@@ -9,7 +9,7 @@ import gitHub from './../../assets/images/gitHub.png';
 import { NavLink } from 'react-router-dom';
 
 const Login = () => {
-
+    const { AllContexts } = useAuth();
     const {
         signInWithGoogle,
         signInWithGitHub,
@@ -17,7 +17,7 @@ const Login = () => {
         getEmail,
         getPassword,
         error
-    } = useAuth();
+    } = AllContexts;
 
     return (
         <div>

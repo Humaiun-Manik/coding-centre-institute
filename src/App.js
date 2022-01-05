@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from "react-router-dom";
 import './App.css';
-import Home from './pages/Home';
 import AuthProvider from './contexts/AuthProvider';
+import Home from './pages/home/Home';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Login from './pages/login/Login';

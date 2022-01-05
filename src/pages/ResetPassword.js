@@ -5,12 +5,13 @@ import { Button, Col, Form, FormControl, InputGroup, Row } from 'react-bootstrap
 import useAuth from '../hooks/useAuth';
 
 const ResetPassword = () => {
-
-    const { getEmail, resetPassword } = useAuth();
+    const { AllContexts } = useAuth();
+    const { getEmail, resetPassword, error } = AllContexts;
 
     return (
         <div className='text-center my-4 w-25 mx-auto'>
             <h5>Your Email Address</h5>
+            <p className='text-danger'>{error}</p>
             <Form onSubmit={resetPassword} >
                 <Row>
                     <Col className="my-1">
@@ -27,11 +28,11 @@ const ResetPassword = () => {
                                 type='email'
                                 placeholder="Enter your email address" />
                         </InputGroup>
+                        <Button className='w-100 mt-2' variant="primary" type="submit">
+                            Send
+                        </Button>
                     </Col>
                 </Row>
-                <Button className='w-100 mt-2' variant="primary" type="submit">
-                    Send
-                </Button>
             </Form>
         </div>
     );

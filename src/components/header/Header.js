@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Header = () => {
-
-    const { user, logOut } = useAuth();
+    const { AllContexts } = useAuth();
+    const { user, logOut } = AllContexts;
     const { displayName, photoURL, providerData } = user;
 
     return (
@@ -22,6 +22,7 @@ const Header = () => {
                         <Nav.Link as={Link} className='text-white' to="/home">Home</Nav.Link>
                         <Nav.Link as={Link} className='text-white' to="/about">About</Nav.Link>
                         <Nav.Link as={Link} className='text-white' to="/contact">Contact</Nav.Link>
+                        <Nav.Link as={Link} className='text-white' to="/courses">Courses</Nav.Link>
                         <Nav.Link as={Link} className='text-white' to="/feature-courses">Feature Courses</Nav.Link>
                         <Nav.Link as={Link} className='text-white mx-2' to="/link"><FontAwesomeIcon icon={faShoppingCart} /><Badge className='badge'>0</Badge></Nav.Link>
                         {!displayName ? (
