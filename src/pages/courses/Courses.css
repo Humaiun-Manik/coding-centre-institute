@@ -1,0 +1,7 @@
+.allCourse{
+    background-image: url(./../../assets/images/sectionBg.png);
+    padding: 40px 0;
+}
+.allCourse h1 p{
+    color: white;
+}
