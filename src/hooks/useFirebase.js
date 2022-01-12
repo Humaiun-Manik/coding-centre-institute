@@ -37,7 +37,7 @@ const useFirebase = () => {
         }, 5000);
     }, [error]);
 
-    //Get the currently signed-in user
+    // observe user state change
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
