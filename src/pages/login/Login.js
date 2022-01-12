@@ -6,17 +6,20 @@ import { Button, Col, Form, FormControl, InputGroup, Row } from 'react-bootstrap
 import useAuth from '../../hooks/useAuth';
 import google from './../../assets/images/google.png';
 import gitHub from './../../assets/images/gitHub.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const Login = () => {
+
+    const location = useLocation();
+    const redirect = location?.state?.from?.pathname || '/home';
     const { AllContexts } = useAuth();
     const {
         signInWithGoogle,
         signInWithGitHub,
         signInWithEmail,
+        error,
         getEmail,
-        getPassword,
-        error
+        getPassword
     } = AllContexts;
 
     return (
@@ -61,7 +64,7 @@ const Login = () => {
                                 </InputGroup>
                             </Col>
                         </Row>
-                        <Button className='w-100 mt-2' variant="primary" type="submit">
+                        <Button onClick={() => { signInWithEmail(redirect) }} className='w-100 mt-2' variant="primary" type="submit">
                             Log in
                         </Button>
                     </Form>
@@ -80,10 +83,10 @@ const Login = () => {
                     <p className='mb-0 pb-0'>Or</p>
                     <p className='mb-0 pb-0'>Login with</p>
                 </div>
-                <button className='google-btn' onClick={signInWithGoogle}>
+                <button className='google-btn' onClick={() => { signInWithGoogle(redirect) }}>
                     <img src={google} alt="google" />
                 </button>
-                <button className='gitHub-btn' onClick={signInWithGitHub}>
+                <button className='gitHub-btn' onClick={() => { signInWithGitHub(redirect) }}>
                     <img src={gitHub} alt="gitHub" />
                 </button>
             </div>

@@ -13,6 +13,8 @@ import Contact from './pages/contact/Contact';
 import PageNotFound from './pages/notFoundPage/PageNotFound';
 import Courses from './pages/courses/Courses';
 import Details from './pages/details/Details';
+import PrivateRoute from './route/PrivateRoute';
+import Cart from './pages/cart/Cart';
 
 function App() {
   return (
@@ -24,10 +26,15 @@ function App() {
           <Route path="home" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="/cart" element={
+            <PrivateRoute>
+              <Cart />
+            </PrivateRoute>
+          } />
           <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
           <Route path="courses" element={<Courses />} />
-          <Route path="courses/course/:id" element={<Details />} />
+          <Route path="course/:id" element={<Details />} />
           <Route path="resetPassword" element={<ResetPassword />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

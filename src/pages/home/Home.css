@@ -8,3 +8,10 @@
 .hero-section p{
     font-size: 22px;
 }
+
+/* .....media query..... */
+@media screen and(max-width:1200px)and(min-width:990px) {
+    .detail-btn{
+        padding: 5px;
+    }
+}

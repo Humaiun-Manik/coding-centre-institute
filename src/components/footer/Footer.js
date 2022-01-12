@@ -38,16 +38,16 @@ const Footer = () => {
                                 <NavLink to='/home'>Home</NavLink>
                             </li>
                             <li>
-                                <NavLink to='/home'>About us</NavLink>
+                                <NavLink to='/about'>About us</NavLink>
                             </li>
                             <li>
-                                <NavLink to='/home'>Contact us</NavLink>
+                                <NavLink to='/contact'>Contact us</NavLink>
                             </li>
                             <li>
-                                <NavLink to='/home'>Courses</NavLink>
+                                <NavLink to='/courses'>Courses</NavLink>
                             </li>
                             <li>
-                                <NavLink to='/home'>Policy</NavLink>
+                                <NavLink to='/policy'>Policy</NavLink>
                             </li>
                         </ul>
                     </Col>

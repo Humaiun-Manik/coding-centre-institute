@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../firebase/firebase.init";
+import { useNavigate } from "react-router-dom";
 import {
     getAuth,
     onAuthStateChanged,
@@ -16,13 +17,9 @@ import {
 
 initializeAuthentication();
 
-// providers
-// const googleProvider = new GoogleAuthProvider();
-
-
-
 const useFirebase = () => {
 
+    const path = useNavigate();
     const auth = getAuth();
 
     const [user, setUser] = useState({});
@@ -31,6 +28,7 @@ const useFirebase = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [photo, setPhoto] = useState('');
+    const [loading, setLoading] = useState(true);
 
     // clear error
     useEffect(() => {
@@ -44,40 +42,46 @@ const useFirebase = () => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
+            } else {
+                setUser({});
             }
+            setLoading(false);
         });
         return () => unsubscribe;
     }, [])
 
     // google sign in
-    const signInWithGoogle = () => {
+    const signInWithGoogle = (pathname) => {
         const googleProvider = new GoogleAuthProvider();
-        signInWithPopup(auth, googleProvider).then((result) => {
-            const user = result.user;
-            setUser(user);
-        }).catch((error) => {
-            setError(error.message);
-        });
+        return signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                const user = result.user;
+                setUser(user);
+                path(pathname);
+            }).catch((error) => {
+                setError(error.message);
+            });
     };
 
     // gitHub sign in
-    const signInWithGitHub = () => {
+    const signInWithGitHub = (pathname) => {
         const gitHubProvider = new GithubAuthProvider();
         signInWithPopup(auth, gitHubProvider).then((result) => {
             const user = result.user;
             setUser(user);
+            path(pathname);
         }).catch((error) => {
             setError(error.message);
         });
     };
 
-    // email sign in
-    const signInWithEmail = (e) => {
-        // const gitHubProvider = new GithubAuthProvider();
+    // email and password sign in
+    const signInWithEmail = (e, pathname) => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password).then((result) => {
             const user = result.user;
             setUser(user);
+            path(pathname);
         }).catch((error) => {
             setError(error.message);
         });
@@ -167,7 +171,8 @@ const useFirebase = () => {
         getPhotoURL,
         signUp,
         logOut,
-        resetPassword
+        resetPassword,
+        loading
     };
 };
 export default useFirebase;

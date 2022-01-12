@@ -1,15 +1,16 @@
 .header-logo{
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 500;
 }
 .header-logo img{
     width: 75px;
 }
 .menu-items a{
-    font-size: 20px;
+    font-size: 16px;
+    transition: 0.7s;
 }
 .menu-items a:hover{
-    color: #660101;
+    color: #950101 !important;
 }
 .badge{
     background-color: #ffa500 !important;
@@ -31,4 +32,11 @@
 .dropdown-menu.show {
     margin-left: -30px;
     padding: 10px;
+}
+
+/* .....media query..... */
+@media screen and (max-width:400px) {
+    .title{
+        display: none;
+    }
 }

@@ -10,7 +10,7 @@ import { faStar as emptyStar } from '@fortawesome/free-regular-svg-icons';
 const Details = () => {
 
     const { id } = useParams();
-    const { courses } = useAuth();
+    const { courses, addToCart } = useAuth();
     const matchingCourse = courses.find(course => course.key === Number(id));
     const { img, title, desc, price, rating, ratingCount } = matchingCourse;
 
@@ -40,7 +40,7 @@ const Details = () => {
                                 </Col>
                                 <Col><h5>Total review: {ratingCount}</h5></Col>
                             </Row>
-                            <Button className='w-75' variant="primary">Add to Cart</Button>
+                            <Button onClick={() => addToCart(matchingCourse)} className='w-75' variant="primary">Add to Cart</Button>
                         </Col>
                     </Row>
                 </Container>
